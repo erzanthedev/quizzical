@@ -7,7 +7,14 @@ body {
 }
 
 main {
-  background-color: #4d5b9e;
+  background-color: #f5f7fb;
+  background-image: url(./assets/blob-light-blue.png),
+    url(./assets/blob-light-yellow.png);
+  background-repeat: no-repeat;
+  background-position:
+    bottom left,
+    top right;
+  background-size: 20%;
   width: 100vw;
   height: 100vh;
 }
