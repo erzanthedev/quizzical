@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text-primary: #293264;
+  --btn-primary: #4d5b9e;
+}
+
 body {
   margin: 0;
 }
