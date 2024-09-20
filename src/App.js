@@ -1,5 +1,11 @@
+import StartMenu from "./components/StartMenu";
+
 function App() {
-  return <main></main>;
+  return (
+    <main>
+      <StartMenu />
+    </main>
+  );
 }
 
 export default App;
