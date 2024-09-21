@@ -3,23 +3,72 @@
 }
 
 :root {
-  --text-primary: #293264;
+  --color-primary: #293264;
+  --color-seconday: #f5f7fb;
   --btn-primary: #4d5b9e;
 }
 
 body {
   margin: 0;
+  font-family: Inter, sans-serif;
 }
 
 main {
-  background-color: #f5f7fb;
+  background-color: var(--color-seconday);
   background-image: url(./assets/blob-light-blue.png),
     url(./assets/blob-light-yellow.png);
   background-repeat: no-repeat;
   background-position:
     bottom left,
     top right;
-  background-size: 20%;
+  background-size: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
+}
+
+.start-menu {
+  text-align: center;
+}
+
+.start-menu-text,
+.start-menu-title {
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.start-menu-title {
+  font-family: Karla, sans-serif;
+  font-size: 1.953rem;
+  margin: 0;
+}
+
+.start-menu-text {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.start-menu-btn {
+  background-color: var(--btn-primary);
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.7);
+  color: #f5f7fb;
+  cursor: pointer;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 193px;
+  height: 52px;
+  margin-top: 10px;
+}
+
+.start-menu-btn:hover {
+  filter: brightness(110%);
+}
+
+.start-menu-btn:active {
+  transform: translateY(1px);
 }
