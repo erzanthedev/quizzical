@@ -6,6 +6,7 @@
   --color-primary: #293264;
   --color-seconday: #f5f7fb;
   --btn-primary: #4d5b9e;
+  --btn-seconday: #d6dbf5;
 }
 
 body {
@@ -73,4 +74,51 @@ main {
 
 .start-menu-btn:active {
   transform: translateY(1px);
+}
+
+/* Quiz Questions */
+
+.question {
+  color: var(--color-primary);
+  font-family: Karla, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.options-container {
+  display: flex;
+  gap: 13px;
+  margin: 11px 0 14px;
+}
+
+.option input[type="radio"] {
+  display: none;
+}
+
+.option label {
+  color: var(--color-primary);
+  border: 0.8px solid var(--btn-primary);
+  border-radius: 9px;
+  padding: 4px 16px;
+  font-size: 0.64rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.option label:hover {
+  background-color: var(--btn-seconday);
+}
+
+.option input[type="radio"]:checked + label {
+  background-color: var(--btn-seconday);
+  border: none;
+}
+
+.divider {
+  margin: 0;
+  border: 0.79px solid #dbdef0;
+  width: 400px;
 }
