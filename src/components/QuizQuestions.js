@@ -1,3 +1,4 @@
+import Button from "./Button";
 export default function QuizQuestions() {
   return (
     <div className="quiz-questions">
@@ -142,7 +143,7 @@ export default function QuizQuestions() {
         <hr className="divider" />
       </div>
       <div className="btn-wrapper">
-        <button className="check-answers-btn">Check Answers</button>
+        <Button classname="check-answers-btn">Check Answers</Button>
       </div>
     </div>
   );
