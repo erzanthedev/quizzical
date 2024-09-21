@@ -141,6 +141,9 @@ export default function QuizQuestions() {
         </div>
         <hr className="divider" />
       </div>
+      <div className="btn-wrapper">
+        <button className="check-answers-btn">Check Answers</button>
+      </div>
     </div>
   );
 }
