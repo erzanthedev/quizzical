@@ -58,7 +58,7 @@ main {
   border-radius: 15px;
   border: none;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.7);
-  color: #f5f7fb;
+  color: var(--color-seconday);
   cursor: pointer;
   font-family: Inter;
   font-size: 1rem;
@@ -122,4 +122,30 @@ main {
   margin: 0;
   border: 0.79px solid #dbdef0;
   width: 800px;
+}
+
+/* Check Answer Btn */
+.btn-wrapper {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.check-answers-btn {
+  background-color: var(--btn-primary);
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.7);
+  color: var(--color-seconday);
+  cursor: pointer;
+  font-family: Inter;
+  font-size: 1.14rem;
+  padding: 16px 28px;
+}
+
+.check-answers-btn:hover {
+  filter: brightness(110%);
+}
+
+.check-answers-btn:active {
+  transform: translateY(1px);
 }
