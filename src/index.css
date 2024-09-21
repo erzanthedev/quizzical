@@ -82,7 +82,7 @@ main {
   color: var(--color-primary);
   font-family: Karla, sans-serif;
   font-size: 1rem;
-  margin: 0;
+  margin-top: 14px;
 }
 
 .options-container {
