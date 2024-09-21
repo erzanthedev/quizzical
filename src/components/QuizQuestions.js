@@ -3,7 +3,7 @@ export default function QuizQuestions() {
   return (
     <div className="quiz-questions">
       {/* Question 1*/}
-      <div className="quiz-card">
+      <div className="question-card">
         <h2 className="question">How would one say goodbye in Spanish?</h2>
         <div className="options-container">
           <div className="option">
@@ -26,7 +26,7 @@ export default function QuizQuestions() {
         <hr className="divider" />
       </div>
       {/* Question 2*/}
-      <div className="quiz-card">
+      <div className="question-card">
         <h2 className="question">
           Which best selling toy of 1983 caused hysteria, resulting in riots
           breaking in stores?
@@ -68,7 +68,7 @@ export default function QuizQuestions() {
       </div>
 
       {/* Question 3*/}
-      <div className="quiz-card">
+      <div className="question-card">
         <h2 className="question">
           What is the hottest planet in our Solar System?
         </h2>
@@ -94,7 +94,7 @@ export default function QuizQuestions() {
       </div>
 
       {/* Question 4*/}
-      <div className="quiz-card">
+      <div className="question-card">
         <h2 className="question">
           In which country was the caesar salad invented?
         </h2>
@@ -120,7 +120,7 @@ export default function QuizQuestions() {
       </div>
 
       {/* Question 5*/}
-      <div className="quiz-card">
+      <div className="question-card">
         <h2 className="question">How Many Hearts Does An Octopus Have?</h2>
         <div className="options-container">
           <div className="option">
