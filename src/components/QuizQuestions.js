@@ -11,7 +11,7 @@ export default function QuizQuestions(props) {
                 <input
                   type="radio"
                   id={`${question.id}-${index}`}
-                  name={`question-${question.id}`}
+                  name={`question${question.id}`}
                   value={option}
                   onChange={props.handleChange}
                 />
