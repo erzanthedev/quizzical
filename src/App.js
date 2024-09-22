@@ -3,10 +3,16 @@ import QuizQuestions from "./components/QuizQuestions";
 import { questionsData } from "./questionsData";
 
 function App() {
+  const handleChange = (event) => {
+    console.log(event.target.value);
+  };
   return (
     <main>
       {/* <StartMenu /> */}
-      <QuizQuestions questionsData={questionsData} />
+      <QuizQuestions
+        questionsData={questionsData}
+        handleChange={handleChange}
+      />
     </main>
   );
 }

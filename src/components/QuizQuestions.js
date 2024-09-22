@@ -13,6 +13,7 @@ export default function QuizQuestions(props) {
                   id={`${question.id}-${index}`}
                   name={`question-${question.id}`}
                   value={option}
+                  onChange={props.handleChange}
                 />
                 <label htmlFor={`${question.id}-${index}`}>{option}</label>
               </div>
