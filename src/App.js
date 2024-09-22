@@ -15,10 +15,11 @@ function App() {
   console.log(selectedAnswers);
 
   const handleChange = (event) => {
+    const { name, value } = event.target;
     setSelectedAnswers((prevSelectedAnswers) => {
       return {
         ...prevSelectedAnswers,
-        [event.target.name]: event.target.value,
+        [name]: value,
       };
     });
   };
