@@ -29,6 +29,7 @@ function App() {
       <QuizQuestions
         questionsData={questionsData}
         handleChange={handleChange}
+        selectedAnswers={selectedAnswers}
       />
     </main>
   );

@@ -13,6 +13,9 @@ export default function QuizQuestions(props) {
                   id={`${question.id}-${index}`}
                   name={`question${question.id}`}
                   value={option}
+                  checked={
+                    props.selectedAnswers[`question${question.id}`] === option
+                  }
                   onChange={props.handleChange}
                 />
                 <label htmlFor={`${question.id}-${index}`}>{option}</label>
