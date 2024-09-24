@@ -15,7 +15,16 @@ function App() {
   console.log(selectedAnswers);
 
   function checkAnswers() {
-    console.log("Clicked");
+    let score = 0;
+
+    questionsData.forEach((question) => {
+      const userAnswer = selectedAnswers[question.id];
+      if (userAnswer === question.correctAnswer) {
+        score++;
+      }
+    });
+
+    console.log(score);
   }
 
   const handleChange = (event) => {
