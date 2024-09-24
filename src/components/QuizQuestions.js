@@ -65,7 +65,11 @@ export default function QuizQuestions(props) {
             answers
           </h3>
         )}
-        <Button classname="check-answers-btn" checkAnswers={props.checkAnswers}>
+        <Button
+          classname="check-answers-btn"
+          checkAnswers={props.checkAnswers}
+          allQuestionsAnswered={props.allQuestionsAnswered}
+        >
           Check Answers
         </Button>
       </div>

@@ -38,6 +38,12 @@ function App() {
       };
     });
   };
+
+  const allQuestionsAnswered = Object.values(selectedAnswers).every(
+    (answer) => answer !== "",
+  );
+
+  console.log("allQuestionsAnswered:", allQuestionsAnswered);
   return (
     <main>
       {/* <StartMenu /> */}
@@ -48,6 +54,7 @@ function App() {
         checkAnswers={checkAnswers}
         isSubmitted={isSubmitted}
         score={score}
+        allQuestionsAnswered={allQuestionsAnswered}
       />
     </main>
   );
