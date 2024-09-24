@@ -12,6 +12,8 @@ function App() {
     question5: "",
   });
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   console.log(selectedAnswers);
 
   function checkAnswers() {
@@ -25,6 +27,7 @@ function App() {
     });
 
     console.log(score);
+    setIsSubmitted(true);
   }
 
   const handleChange = (event) => {
@@ -44,6 +47,7 @@ function App() {
         handleChange={handleChange}
         selectedAnswers={selectedAnswers}
         checkAnswers={checkAnswers}
+        isSubmitted={isSubmitted}
       />
     </main>
   );
