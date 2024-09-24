@@ -11,11 +11,9 @@ export default function QuizQuestions(props) {
                 <input
                   type="radio"
                   id={`${question.id}-${index}`}
-                  name={`question${question.id}`}
+                  name={question.id}
                   value={option}
-                  checked={
-                    props.selectedAnswers[`question${question.id}`] === option
-                  }
+                  checked={props.selectedAnswers[question.id] === option}
                   onChange={props.handleChange}
                 />
                 <label htmlFor={`${question.id}-${index}`}>{option}</label>
@@ -31,7 +29,9 @@ export default function QuizQuestions(props) {
     <div className="quiz-questions">
       {questionCardlist}
       <div className="btn-wrapper">
-        <Button classname="check-answers-btn">Check Answers</Button>
+        <Button classname="check-answers-btn" checkAnswers={props.checkAnswers}>
+          Check Answers
+        </Button>
       </div>
     </div>
   );

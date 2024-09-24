@@ -14,6 +14,10 @@ function App() {
 
   console.log(selectedAnswers);
 
+  function checkAnswers() {
+    console.log("Clicked");
+  }
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSelectedAnswers((prevSelectedAnswers) => {
@@ -30,6 +34,7 @@ function App() {
         questionsData={questionsData}
         handleChange={handleChange}
         selectedAnswers={selectedAnswers}
+        checkAnswers={checkAnswers}
       />
     </main>
   );
