@@ -22,6 +22,12 @@ export default function QuizQuestions(props) {
                 styles = {
                   backgroundColor: "#F8BCBC",
                   border: "none",
+                  opacity: "50%",
+                };
+              } else {
+                styles = {
+                  borderColor: "#4d5b9e",
+                  opacity: "50%",
                 };
               }
             }
@@ -35,6 +41,7 @@ export default function QuizQuestions(props) {
                   value={option}
                   checked={props.selectedAnswers[question.id] === option}
                   onChange={props.handleChange}
+                  disabled={props.isSubmitted}
                 />
                 <label style={styles} htmlFor={`${question.id}-${index}`}>
                   {option}
