@@ -67,7 +67,7 @@ export default function QuizQuestions(props) {
         )}
         <Button
           classname="check-answers-btn"
-          checkAnswers={props.checkAnswers}
+          onCheckAnswers={props.onCheckAnswers}
           allQuestionsAnswered={props.allQuestionsAnswered}
         >
           Check Answers

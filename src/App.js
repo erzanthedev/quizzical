@@ -15,9 +15,6 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
 
-  console.log(selectedAnswers);
-  console.log(score);
-
   function checkAnswers() {
     questionsData.forEach((question) => {
       const userAnswer = selectedAnswers[question.id];
@@ -43,6 +40,10 @@ function App() {
     (answer) => answer !== "",
   );
 
+  const handleSubmit = () => {
+    checkAnswers();
+  };
+
   console.log("allQuestionsAnswered:", allQuestionsAnswered);
   return (
     <main>
@@ -51,7 +52,7 @@ function App() {
         questionsData={questionsData}
         handleChange={handleChange}
         selectedAnswers={selectedAnswers}
-        checkAnswers={checkAnswers}
+        onCheckAnswers={handleSubmit}
         isSubmitted={isSubmitted}
         score={score}
         allQuestionsAnswered={allQuestionsAnswered}

@@ -2,7 +2,7 @@ export default function Button(props) {
   return (
     <button
       className={props.classname}
-      onClick={props.checkAnswers}
+      onClick={props.onCheckAnswers}
       disabled={!props.allQuestionsAnswered}
     >
       {props.children}
