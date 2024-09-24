@@ -13,20 +13,19 @@ function App() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [score, setScore] = useState(0);
 
   console.log(selectedAnswers);
+  console.log(score);
 
   function checkAnswers() {
-    let score = 0;
-
     questionsData.forEach((question) => {
       const userAnswer = selectedAnswers[question.id];
       if (userAnswer === question.correctAnswer) {
-        score++;
+        setScore((prevScore) => prevScore + 1);
       }
     });
 
-    console.log(score);
     setIsSubmitted(true);
   }
 
@@ -48,6 +47,7 @@ function App() {
         selectedAnswers={selectedAnswers}
         checkAnswers={checkAnswers}
         isSubmitted={isSubmitted}
+        score={score}
       />
     </main>
   );

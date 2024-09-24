@@ -59,6 +59,7 @@ export default function QuizQuestions(props) {
     <div className="quiz-questions">
       {questionCardlist}
       <div className="btn-wrapper">
+        <h3 className="score-text">You scored 3/5 correct answers</h3>
         <Button classname="check-answers-btn" checkAnswers={props.checkAnswers}>
           Check Answers
         </Button>
