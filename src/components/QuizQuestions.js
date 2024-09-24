@@ -21,6 +21,7 @@ export default function QuizQuestions(props) {
               } else if (userAnswer === option) {
                 styles = {
                   backgroundColor: "#F8BCBC",
+                  color: "#293264",
                   border: "none",
                   opacity: "50%",
                 };
