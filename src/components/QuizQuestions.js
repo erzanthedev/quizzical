@@ -6,6 +6,26 @@ export default function QuizQuestions(props) {
         <h2 className="question">{question.question}</h2>
         <div className="options-container">
           {question.options.map((option, index) => {
+            let styles = {};
+
+            if (props.isSubmitted) {
+              const userAnswer = props.selectedAnswers[question.id];
+              if (
+                userAnswer === question.correctAnswer &&
+                option === userAnswer
+              ) {
+                styles = {
+                  backgroundColor: "#94D7A2",
+                  border: "none",
+                };
+              } else if (userAnswer === option) {
+                styles = {
+                  backgroundColor: "#F8BCBC",
+                  border: "none",
+                };
+              }
+            }
+
             return (
               <div className="option" key={index}>
                 <input
@@ -16,7 +36,9 @@ export default function QuizQuestions(props) {
                   checked={props.selectedAnswers[question.id] === option}
                   onChange={props.handleChange}
                 />
-                <label htmlFor={`${question.id}-${index}`}>{option}</label>
+                <label style={styles} htmlFor={`${question.id}-${index}`}>
+                  {option}
+                </label>
               </div>
             );
           })}
