@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StartMenu from "./components/StartMenu";
 import QuizQuestions from "./components/QuizQuestions";
 import { data } from "./questionsData";
@@ -19,6 +19,22 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [questionsData, setQuestionsData] = useState();
+
+  useEffect(() => {
+    async function getQuizData() {
+      const apiUrl =
+        "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple";
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        console.log(data.results);
+      } catch (err) {
+        console.log("Oopps something went wrong: ", err);
+      }
+    }
+
+    getQuizData();
+  }, []);
 
   function reshuffleOptions(fetchedData) {
     return fetchedData.map((question) => {
