@@ -18,10 +18,34 @@ function App() {
   );
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
-  const [questionsData, setQuestionsData] = useState(data);
+  const [questionsData, setQuestionsData] = useState();
+
+  function reshuffleOptions(fetchedData) {
+    return fetchedData.map((question) => {
+      // Copy of options array
+      const shuffleOptions = [...question.options];
+
+      // Loop through copied options
+      for (let i = shuffleOptions.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        // Swap options indexes
+        [shuffleOptions[i], shuffleOptions[randomIndex]] = [
+          shuffleOptions[randomIndex],
+          shuffleOptions[i],
+        ];
+      }
+
+      return {
+        ...question,
+        options: shuffleOptions,
+      };
+    });
+  }
 
   const handleStartQuiz = () => {
     setIsNotPlaying((prevPlayState) => !prevPlayState);
+    const shuffledData = reshuffleOptions(data);
+    setQuestionsData(shuffledData);
   };
 
   const handleChange = (event) => {
