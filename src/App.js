@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import StartMenu from "./components/StartMenu";
 import QuizQuestions from "./components/QuizQuestions";
-import { data } from "./questionsData";
 
 function App() {
   const initialSelectedAnswers = {
@@ -18,7 +17,19 @@ function App() {
   );
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
-  const [questionsData, setQuestionsData] = useState();
+  const [questionsData, setQuestionsData] = useState([]);
+
+  // Helper function to restructure fetched data
+  function restructureApiData(apiData) {
+    return apiData.map((question, index) => {
+      return {
+        id: `question${index + 1}`,
+        text: question.question,
+        options: [...question.incorrect_answers, question.correct_answer],
+        correctAnswer: question.correct_answer,
+      };
+    });
+  }
 
   useEffect(() => {
     async function getQuizData() {
@@ -27,7 +38,8 @@ function App() {
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        console.log(data.results);
+        const newData = restructureApiData(data.results);
+        setQuestionsData(newData);
       } catch (err) {
         console.log("Oopps something went wrong: ", err);
       }
@@ -60,7 +72,7 @@ function App() {
 
   const handleStartQuiz = () => {
     setIsNotPlaying((prevPlayState) => !prevPlayState);
-    const shuffledData = reshuffleOptions(data);
+    const shuffledData = reshuffleOptions(questionsData);
     setQuestionsData(shuffledData);
   };
 
