@@ -3,7 +3,7 @@ export default function QuizQuestions(props) {
   const questionCardlist = props.questionsData.map((question) => {
     return (
       <div className="question-card" key={question.id}>
-        <h2 className="question">{question.question}</h2>
+        <h2 className="question">{question.text}</h2>
         <div className="options-container">
           {question.options.map((option, index) => {
             let styles = {};
