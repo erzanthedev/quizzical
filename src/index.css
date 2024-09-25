@@ -89,6 +89,8 @@ main {
 .options-container {
   display: flex;
   gap: 13px;
+  flex-wrap: wrap;
+  max-width: 800px;
   margin: 11px 0 25px;
 }
 

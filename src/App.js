@@ -17,7 +17,7 @@ function App() {
   );
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
-  const [questionsData, setQuestionsData] = useState([]);
+  const [questionsData, setQuestionsData] = useState();
 
   // Helper function to restructure fetched data
   function restructureApiData(apiData) {
