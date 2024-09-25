@@ -12,10 +12,10 @@ function App() {
     question5: "",
   };
 
+  const [isNotPlaying, setIsNotPlaying] = useState(true);
   const [selectedAnswers, setSelectedAnswers] = useState(
     initialSelectedAnswers,
   );
-
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
 
@@ -44,12 +44,6 @@ function App() {
     (answer) => answer !== "",
   );
 
-  function resetQuiz() {
-    setSelectedAnswers(initialSelectedAnswers);
-    setIsSubmitted((prevSubmit) => !prevSubmit);
-    setScore(0);
-  }
-
   const handleSubmit = () => {
     if (!allQuestionsAnswered) {
       return alert("Answer all questions before checking answers");
@@ -57,19 +51,43 @@ function App() {
     checkAnswers();
   };
 
-  console.log("allQuestionsAnswered:", allQuestionsAnswered);
+  const handleStartQuiz = () => {
+    setIsNotPlaying(false);
+  };
+
+  function resetQuiz() {
+    setSelectedAnswers(initialSelectedAnswers);
+    setIsSubmitted((prevSubmit) => !prevSubmit);
+    setScore(0);
+    setIsNotPlaying(true);
+  }
+
+  function handleClickRoute() {
+    console.log("Ready to Route");
+    if (isNotPlaying) {
+      handleStartQuiz();
+    }
+
+    if (!isNotPlaying) {
+      handleSubmit();
+    }
+  }
+
   return (
     <main>
-      {/* <StartMenu /> */}
-      <QuizQuestions
-        questionsData={questionsData}
-        handleChange={handleChange}
-        selectedAnswers={selectedAnswers}
-        onCheckAnswers={handleSubmit}
-        isSubmitted={isSubmitted}
-        score={score}
-        resetQuiz={resetQuiz}
-      />
+      {isNotPlaying ? (
+        <StartMenu handleClickRoute={handleClickRoute} />
+      ) : (
+        <QuizQuestions
+          questionsData={questionsData}
+          handleChange={handleChange}
+          selectedAnswers={selectedAnswers}
+          isSubmitted={isSubmitted}
+          score={score}
+          handleClickRoute={handleClickRoute}
+          resetQuiz={resetQuiz}
+        />
+      )}
     </main>
   );
 }
