@@ -11,8 +11,9 @@ export default function QuizQuestions(props) {
             if (props.isSubmitted) {
               const userAnswer = props.selectedAnswers[question.id];
               if (
-                userAnswer === question.correctAnswer &&
-                option === userAnswer
+                (userAnswer === question.correctAnswer &&
+                  option === userAnswer) ||
+                option === question.correctAnswer
               ) {
                 styles = {
                   backgroundColor: "#94D7A2",
