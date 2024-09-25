@@ -3,9 +3,7 @@ export default function Button(props) {
     <button
       className={props.classname}
       onClick={
-        props.children === "Play Again"
-          ? props.resetQuiz
-          : props.handleClickRoute
+        props.children === "Play Again" ? props.resetQuiz : props.handleRoute
       }
     >
       {props.children}

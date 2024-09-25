@@ -67,7 +67,7 @@ export default function QuizQuestions(props) {
         )}
         <Button
           classname="check-answers-btn"
-          handleClickRoute={props.handleClickRoute}
+          handleRoute={props.handleRoute}
           resetQuiz={props.resetQuiz}
         >
           {props.isSubmitted ? "Play Again" : "Check Answers"}

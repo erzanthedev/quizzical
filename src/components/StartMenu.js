@@ -4,10 +4,7 @@ export default function StartMenu(props) {
     <div className="start-menu">
       <h1 className="start-menu-title">Quizzical</h1>
       <p className="start-menu-text">Some description if needed</p>
-      <Button
-        classname="start-menu-btn"
-        handleClickRoute={props.handleClickRoute}
-      >
+      <Button classname="start-menu-btn" handleRoute={props.handleRoute}>
         Start quiz
       </Button>
     </div>

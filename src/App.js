@@ -19,16 +19,9 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
 
-  function checkAnswers() {
-    questionsData.forEach((question) => {
-      const userAnswer = selectedAnswers[question.id];
-      if (userAnswer === question.correctAnswer) {
-        setScore((prevScore) => prevScore + 1);
-      }
-    });
-
-    setIsSubmitted((prevSubmit) => !prevSubmit);
-  }
+  const handleStartQuiz = () => {
+    setIsNotPlaying((prevPlayState) => !prevPlayState);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,6 +32,17 @@ function App() {
       };
     });
   };
+
+  function checkAnswers() {
+    questionsData.forEach((question) => {
+      const userAnswer = selectedAnswers[question.id];
+      if (userAnswer === question.correctAnswer) {
+        setScore((prevScore) => prevScore + 1);
+      }
+    });
+
+    setIsSubmitted((prevSubmit) => !prevSubmit);
+  }
 
   const allQuestionsAnswered = Object.values(selectedAnswers).every(
     (answer) => answer !== "",
@@ -51,32 +55,21 @@ function App() {
     checkAnswers();
   };
 
-  const handleStartQuiz = () => {
-    setIsNotPlaying(false);
-  };
+  function handleRoute() {
+    return isNotPlaying ? handleStartQuiz() : handleSubmit();
+  }
 
   function resetQuiz() {
     setSelectedAnswers(initialSelectedAnswers);
     setIsSubmitted((prevSubmit) => !prevSubmit);
     setScore(0);
-    setIsNotPlaying(true);
-  }
-
-  function handleClickRoute() {
-    console.log("Ready to Route");
-    if (isNotPlaying) {
-      handleStartQuiz();
-    }
-
-    if (!isNotPlaying) {
-      handleSubmit();
-    }
+    handleStartQuiz();
   }
 
   return (
     <main>
       {isNotPlaying ? (
-        <StartMenu handleClickRoute={handleClickRoute} />
+        <StartMenu handleRoute={handleRoute} />
       ) : (
         <QuizQuestions
           questionsData={questionsData}
@@ -84,7 +77,7 @@ function App() {
           selectedAnswers={selectedAnswers}
           isSubmitted={isSubmitted}
           score={score}
-          handleClickRoute={handleClickRoute}
+          handleRoute={handleRoute}
           resetQuiz={resetQuiz}
         />
       )}
