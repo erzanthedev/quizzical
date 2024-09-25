@@ -1,7 +1,7 @@
 import { useState } from "react";
 import StartMenu from "./components/StartMenu";
 import QuizQuestions from "./components/QuizQuestions";
-import { questionsData } from "./questionsData";
+import { data } from "./questionsData";
 
 function App() {
   const initialSelectedAnswers = {
@@ -18,6 +18,7 @@ function App() {
   );
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
+  const [questionsData, setQuestionsData] = useState(data);
 
   const handleStartQuiz = () => {
     setIsNotPlaying((prevPlayState) => !prevPlayState);

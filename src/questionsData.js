@@ -1,4 +1,4 @@
-export const questionsData = [
+export const data = [
   {
     id: "question1",
     question: "How would one say goodbye in Spanish?",
