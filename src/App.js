@@ -4,13 +4,17 @@ import QuizQuestions from "./components/QuizQuestions";
 import { questionsData } from "./questionsData";
 
 function App() {
-  const [selectedAnswers, setSelectedAnswers] = useState({
+  const initialSelectedAnswers = {
     question1: "",
     question2: "",
     question3: "",
     question4: "",
     question5: "",
-  });
+  };
+
+  const [selectedAnswers, setSelectedAnswers] = useState(
+    initialSelectedAnswers,
+  );
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
@@ -23,7 +27,7 @@ function App() {
       }
     });
 
-    setIsSubmitted(true);
+    setIsSubmitted((prevSubmit) => !prevSubmit);
   }
 
   const handleChange = (event) => {
@@ -39,6 +43,12 @@ function App() {
   const allQuestionsAnswered = Object.values(selectedAnswers).every(
     (answer) => answer !== "",
   );
+
+  function resetQuiz() {
+    setSelectedAnswers(initialSelectedAnswers);
+    setIsSubmitted((prevSubmit) => !prevSubmit);
+    setScore(0);
+  }
 
   const handleSubmit = () => {
     if (!allQuestionsAnswered) {
@@ -58,6 +68,7 @@ function App() {
         onCheckAnswers={handleSubmit}
         isSubmitted={isSubmitted}
         score={score}
+        resetQuiz={resetQuiz}
       />
     </main>
   );

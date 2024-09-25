@@ -69,8 +69,9 @@ export default function QuizQuestions(props) {
           classname="check-answers-btn"
           onCheckAnswers={props.onCheckAnswers}
           allQuestionsAnswered={props.allQuestionsAnswered}
+          resetQuiz={props.resetQuiz}
         >
-          Check Answers
+          {props.isSubmitted ? "Play Again" : "Check Answers"}
         </Button>
       </div>
     </div>
