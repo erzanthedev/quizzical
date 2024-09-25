@@ -41,6 +41,9 @@ function App() {
   );
 
   const handleSubmit = () => {
+    if (!allQuestionsAnswered) {
+      return alert("Answer all questions before checking answers");
+    }
     checkAnswers();
   };
 
@@ -55,7 +58,6 @@ function App() {
         onCheckAnswers={handleSubmit}
         isSubmitted={isSubmitted}
         score={score}
-        allQuestionsAnswered={allQuestionsAnswered}
       />
     </main>
   );
