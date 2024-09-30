@@ -27,7 +27,10 @@ function App() {
       return {
         id: `question${index + 1}`,
         text: decode(question.question),
-        options: [...question.incorrect_answers, question.correct_answer],
+        options: decode([
+          ...question.incorrect_answers,
+          question.correct_answer,
+        ]),
         correctAnswer: question.correct_answer,
       };
     });
