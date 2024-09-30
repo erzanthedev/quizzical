@@ -120,7 +120,6 @@ function App() {
     setSelectedAnswers(initialSelectedAnswers);
     setIsSubmitted((prevSubmit) => !prevSubmit);
     setScore(0);
-    handleStartQuiz();
     setResetCount((prevCount) => prevCount + 1);
   }
 
