@@ -8,6 +8,9 @@
 
 This project was built using a **Figma mockup design**, allowing me to replicate the structure and layout exactly as intended. It sharpened both my design matching and coding skills as I worked from mockups to a functional app.
 
+![image](https://github.com/user-attachments/assets/536e307f-00e4-4bd9-93d6-44c392b44045)
+
+
 ---
 
 ## 🎯 Purpose of the Project
