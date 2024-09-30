@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import StartMenu from "./components/StartMenu";
 import QuizQuestions from "./components/QuizQuestions";
+import { decode } from "html-entities";
 
 function App() {
   const initialSelectedAnswers = {
@@ -25,7 +26,7 @@ function App() {
     return apiData.map((question, index) => {
       return {
         id: `question${index + 1}`,
-        text: question.question,
+        text: decode(question.question),
         options: [...question.incorrect_answers, question.correct_answer],
         correctAnswer: question.correct_answer,
       };
