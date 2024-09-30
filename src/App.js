@@ -18,6 +18,7 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [questionsData, setQuestionsData] = useState();
+  const [resetCount, setResetCount] = useState(0);
 
   // Helper function to restructure fetched data
   function restructureApiData(apiData) {
@@ -33,8 +34,7 @@ function App() {
 
   useEffect(() => {
     async function getQuizData() {
-      const apiUrl =
-        "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple";
+      const apiUrl = "https://opentdb.com/api.php?amount=5&type=multiple";
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -46,7 +46,7 @@ function App() {
     }
 
     getQuizData();
-  }, []);
+  }, [resetCount]);
 
   function reshuffleOptions(fetchedData) {
     return fetchedData.map((question) => {
@@ -117,6 +117,7 @@ function App() {
     setIsSubmitted((prevSubmit) => !prevSubmit);
     setScore(0);
     handleStartQuiz();
+    setResetCount((prevCount) => prevCount + 1);
   }
 
   return (
